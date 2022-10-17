@@ -14,7 +14,7 @@ node {
    stage('docker build/push') {
      docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
        sh "echo ${commit_id}"
-       def app = docker.build('sevenearths/docker-nodejs-demo:${commit_id}', '.').push()
+       def app = docker.build('sevenearths/docker-nodejs-demo:ad822e2', '.').push()
      }
    }
 }
