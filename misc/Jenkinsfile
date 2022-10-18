@@ -13,7 +13,7 @@ node {
    }
    stage('docker build/push') {
      docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
-       docker_tag = sh(returnStdout: true, "echo sevenearths/docker-nodejs-demo:${commit_id}")
+       docker_tag = sh(script: 'echo sevenearths/docker-nodejs-demo:${commit_id}', returnStdout: true)
        def app = docker.build(docker_tag, '.').push()
      }
    }
